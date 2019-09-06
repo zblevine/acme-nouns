@@ -1,4 +1,4 @@
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 const conn = new Sequelize('postgres://localhost/nouns_db');
 
 const Person = conn.define('person', {
@@ -67,5 +67,14 @@ const syncAndSeed = async () => {
     Thing.create({name: 'cup', personId: Jesen.id}),
     Thing.create({name: 'Grammy', personId: Kanye.id})
   ]);
+}
+
+module.exports = {
+  syncAndSeed,
+  models: {
+    Thing,
+    Person,
+    Place,
+  }
 }
 
