@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const conn = new Sequelize('postgres://localhost/nouns_db');
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/nouns_db');
 
 const Person = conn.define('person', {
   id: {

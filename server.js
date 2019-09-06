@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json());
 
+const port = process.env.PORT || 3000;
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 })
@@ -25,5 +27,5 @@ Object.keys(routes).forEach(key => {
 
 db.syncAndSeed()
   .then(() => {
-    app.listen(3000, () => console.log("listening to port 3000"))
+    app.listen(port, () => console.log("listening to port 3000"))
   })
